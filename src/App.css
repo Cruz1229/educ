@@ -1,0 +1,89 @@
+/* src/styles/components/App.css */
+/* Estilos específicos para el componente App */
+
+/* Pantalla de bienvenida */
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  padding: 2rem;
+}
+
+.welcome-card {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+  padding: 3rem;
+  border-radius: 16px;
+  background-color: var(--pure-white);
+  box-shadow: var(--shadow-lg);
+  animation: scaleIn 0.6s ease-out;
+}
+
+/* Grid de áreas */
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.area-card {
+  background-color: var(--pure-white);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition-normal);
+  cursor: pointer;
+}
+
+.area-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Botones */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition-normal);
+}
+
+.btn-primary {
+  background-color: var(--secondary-color);
+  color: rgb(255, 255, 255);
+}
+
+.btn-primary:hover {
+  background-color: #005b8b;
+}
+
+/* Opciones de plataforma */
+.platform-options {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.platform-option {
+  width: 180px;
+  padding: 2rem 1rem;
+  background-color: var(--light-blue);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition-normal);
+  border: 2px solid transparent;
+}
+
+.platform-option:hover {
+  background-color: var(--pure-white);
+  border-color: var(--secondary-color);
+  transform: scale(1.05);
+}

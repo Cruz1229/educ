@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Estilos Base --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow-y: auto;
+}
+
+/* --- Contenedor Principal (Fondo) --- */
+.juego-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* CORRECCIÓN 1: Nuevo gradiente de "Cielo Azul Claro". */
+  background: linear-gradient(135deg, #a1c4fd, #c2e9fb, #d4eafc);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Contenedor del Contenido del Juego --- */
+.game-content {
+  width: 100%;
+  max-width: 900px;
+  /* CORRECCIÓN 2: Panel de "Nube Blanca" para máxima claridad. */
+  background: rgba(255, 255, 255, 0.75); /* Blanco más sólido pero aún traslúcido */
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: clamp(1.5rem, 5vw, 3rem);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Pantalla de Selección de Nivel --- */
+.seleccion-container h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0;
+  /* CORRECCIÓN 3: Texto azul marino para el mejor contraste sobre blanco. */
+  color: #0d47a1; /* Azul oscuro y nítido */
+  text-shadow: none; /* No necesita sombra sobre un fondo claro */
+}
+
+.lottie-animation {
+  width: 140px;
+  height: 140px;
+  margin-top: -10px;
+}
+
+.seleccion-container p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #1565c0; /* Azul intermedio para subtítulos */
+}
+
+.niveles-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* CORRECCIÓN 4: Botones con una paleta de azules vibrantes. */
+.btn-nivel {
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-nivel:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.btn-nivel:hover:before { left: 100%; }
+.btn-nivel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-nivel:active { transform: translateY(-2px) scale(0.98); }
+
+.btn-nivel.basico { background: linear-gradient(45deg, #42a5f5, #64b5f6); } /* Azul Cielo */
+.btn-nivel.intermedio { background: linear-gradient(45deg, #1e88e5, #42a5f5); } /* Azul Primario */
+.btn-nivel.avanzado { background: linear-gradient(45deg, #0d47a1, #1976d2); } /* Azul Marino */
+
+/* --- Pantalla de Juego --- */
+.header-juego, .timer-bar-container, .acertijo-pregunta, .opciones-container {
+  width: 100%;
+}
+
+.header-juego {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0d47a1;
+}
+
+.timer-bar-container {
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  margin: 1rem 0 0.5rem;
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  background: #ffca28; /* Amarillo sol, contrasta perfecto con el azul */
+  border-radius: 6px;
+  transition: width 1s linear;
+}
+
+.tiempo-restante {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1565c0;
+}
+
+.acertijo-pregunta {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.acertijo-pregunta h2 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem 0;
+  color: #0d47a1;
+}
+
+.opciones-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* CORRECCIÓN 5: Botones de respuesta limpios y claros. */
+.btn-opcion {
+  padding: 1.2rem;
+  background: #ffffff;
+  border: 2px solid #bbdefb; /* Borde azul muy claro */
+  border-radius: 15px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: #1e88e5; /* Texto azul */
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opcion:hover {
+  background: #1e88e5; /* Fondo azul al pasar el ratón */
+  border-color: #1e88e5;
+  color: white; /* Texto blanco al pasar el ratón */
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .opciones-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* ... todo tu código CSS anterior ... */
+
+/* ESTILOS PARA LOS POP-UPS PERSONALIZADOS */
+.swal-correct, .swal-incorrect {
+  border-radius: 20px !important;
+  font-family: 'Poppins', sans-serif !important;
+}
+
+.swal-correct .swal2-title {
+  color: #0d47a1 !important;
+}
+
+.swal-incorrect .swal2-title {
+  color: #c62828 !important;
+}
+
+/* NUEVO: ESTILO PARA BOTONES DESHABILITADOS */
+.btn-opcion:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important; /* Evita que la animación de hover se active */
+  box-shadow: none !important;
+}

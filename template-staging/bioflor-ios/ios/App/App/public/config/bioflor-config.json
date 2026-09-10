@@ -1,0 +1,10 @@
+{
+  "nombreApp": "BioFlor",
+  "nivel": "Básico",
+  "flores": ["lirio", "rosa", "tulipan"],
+  "autor": "STEAM-G",
+  "version": "1.0.0",
+  "fecha": "2026-08-19",
+  "descripcion": "Disección anatómica e identificación de las partes de una flor.",
+  "plataformas": ["android"]
+}

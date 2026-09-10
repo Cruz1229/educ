@@ -1,0 +1,12 @@
+{
+  "appId": "io.bioflor.steam",
+  "appName": "BioFlor",
+  "webDir": "dist",
+  "packageClassList": [
+    "AppPlugin",
+    "HapticsPlugin",
+    "KeyboardPlugin",
+    "ScreenOrientationPlugin",
+    "StatusBarPlugin"
+  ]
+}

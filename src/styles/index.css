@@ -1,0 +1,235 @@
+/* src/styles/index.css */
+:root {
+  /* Paleta de colores principal */
+  --primary-color: #000000;
+  --secondary-color: #0077b6;
+  --background-color: #ffffff;
+  --accent-color: #e6f2ff;
+  
+  /* Colores adicionales */
+  --pure-white: #ffffff;
+  --soft-white: #f8f9fa;
+  --pure-black: #000000;
+  --dark-gray: #212529;
+  --medium-gray: #666666;
+  --error-red: #d32f2f;
+  --error-bg: #ffebee;
+  --info-blue: #1976d2;
+  --blue: #0077b6;
+  --light-blue: #76b8ff;
+
+  /* Sombras */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.2);
+
+  /* Transiciones */
+  --transition-fast: all 0.2s ease;
+  --transition-normal: all 0.3s ease;
+  --transition-slow: all 0.5s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.6;
+}
+
+/* Estructura principal */
+.steam-app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 2rem;
+}
+
+/* Encabezado */
+.steam-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  border-bottom: 1px solid var(--accent-color);
+}
+
+.header-content {
+  text-align: right;
+  flex-grow: 1;
+}
+
+.logo-container {
+  height: 50px;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+  max-width: 150px;
+}
+
+.steam-title {
+  font-size: 2rem;
+  font-weight: 300;
+  margin-bottom: 1rem;
+}
+
+.steam-subtitle {
+  font-size: 0.9rem;
+  color: var(--secondary-color);
+  margin-top: 2rem;
+}
+
+/* Pie de página */
+.steam-footer {
+  position: sticky;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--primary-color);
+  background-color: var(--background-color);
+  border-top: 1px solid var(--accent-color);
+  z-index: 100;
+}
+
+/* Contenedores principales */
+.screen-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.app-container {
+  margin: 2rem auto;
+  max-width: 1200px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--accent-color);
+  background-color: var(--background-color);
+}
+
+/* Componentes comunes */
+.app-selector {
+  position: relative;
+  display: inline-block;
+  margin: 1rem 0;
+}
+
+.dropdown-btn {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--secondary-color);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-normal);
+}
+
+.dropdown-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Iframe */
+.app-frame {
+  width: 100%;
+  height: 75vh;
+  border: none;
+  display: block;
+}
+
+/* Mensajes y estados */
+.no-app-selected {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  color: var(--secondary-color);
+  font-size: 1.2rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+.app-error {
+  padding: 2rem;
+  text-align: center;
+  color: var(--error-red);
+  background-color: var(--error-bg);
+  border-radius: 4px;
+  margin: 1rem;
+}
+
+.error-message {
+  margin-top: 1rem;
+}
+
+.error-message a {
+  color: var(--info-blue);
+  word-break: break-all;
+}
+
+.app-loading {
+  padding: 2rem;
+  text-align: center;
+  font-style: italic;
+  color: var(--dark-gray);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .steam-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+  
+  .header-content {
+    text-align: left;
+    width: 100%;
+    margin-top: 1rem;
+  }
+  
+  .logo-container {
+    height: 40px;
+  }
+  
+  .app-container {
+    margin: 1rem;
+  }
+  
+  .app-frame {
+    height: 60vh;
+  }
+}

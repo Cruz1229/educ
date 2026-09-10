@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+/* --- Estilos Base --- */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  overflow-y: auto;
+}
+
+/* --- Contenedor Principal (Fondo) --- */
+.juego-container {
+  width: 100%;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* CORRECCIÓN 1: Un nuevo gradiente más oscuro y cohesivo.
+     Esto reduce la distracción y mejora el contraste general. */
+  background: linear-gradient(135deg, #1f2937, #374151, #4b5563);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: white;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Contenedor del Contenido del Juego --- */
+.game-content {
+  width: 100%;
+  max-width: 900px;
+  /* CORRECCIÓN 2: El "Panel de Vidrio Esmerilado".
+     Este es el cambio más importante para la legibilidad. */
+  background: rgba(17, 24, 39, 0.5); /* Color de fondo semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  backdrop-filter: blur(12px); /* El efecto de desenfoque clave */
+  -webkit-backdrop-filter: blur(12px);
+  padding: clamp(1.5rem, 5vw, 3rem); /* Padding adaptable */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- Pantalla de Selección de Nivel --- */
+.seleccion-container h1 {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 0;
+  /* CORRECCIÓN 3: Sombra de texto más sutil pero efectiva. */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.lottie-animation {
+  width: 140px;
+  height: 140px;
+  margin-top: -10px;
+}
+
+.seleccion-container p {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  color: #d1d5db; /* Color de texto secundario más claro */
+}
+
+.niveles-botones {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.btn-nivel {
+  padding: 1rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-nivel:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.btn-nivel:hover:before { left: 100%; }
+.btn-nivel:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+.btn-nivel:active { transform: translateY(-2px) scale(0.98); }
+
+.btn-nivel.basico { background: linear-gradient(45deg, #10b981, #34d399); }
+.btn-nivel.intermedio { background: linear-gradient(45deg, #f59e0b, #fcd34d); }
+.btn-nivel.avanzado { background: linear-gradient(45deg, #8b5cf6, #a78bfa); }
+
+/* --- Pantalla de Juego --- */
+.header-juego, .timer-bar-container, .acertijo-pregunta, .opciones-container {
+  width: 100%;
+}
+
+.header-juego {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.timer-bar-container {
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  margin: 1rem 0 0.5rem;
+  overflow: hidden;
+}
+
+.timer-bar {
+  height: 100%;
+  background: #fcd34d;
+  border-radius: 6px;
+  transition: width 1s linear;
+}
+
+.tiempo-restante {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.acertijo-pregunta {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+}
+
+.acertijo-pregunta h2 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.5;
+  padding: 1rem 0;
+  /* El texto ahora es 100% legible sobre el panel */
+}
+
+.opciones-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding-bottom: 1rem;
+}
+
+.btn-opcion {
+  padding: 1.2rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 15px;
+  font-size: clamp(0.9rem, 2vw, 1.1rem);
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-opcion:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: white;
+  transform: translateY(-3px);
+}
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .opciones-container {
+    grid-template-columns: 1fr;
+  }
+}

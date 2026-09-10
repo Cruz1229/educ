@@ -1,0 +1,36 @@
+/*
+  Este archivo crea el efecto 'hover' para las tarjetas de juego.
+  Asegúrate de que la importación en 'SteamActivities.jsx'
+  ('../styles/game-card-hover.css') sea correcta.
+*/
+
+/* 1. ESTADO BASE DE LA TARJETA */
+.game-card {
+  /* Añadimos una transición suave para que el efecto no sea instantáneo */
+  transition: 
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+    border-color 0.3s ease;
+  
+  /* Un borde transparente para que el hover no mueva el layout */
+  border: 3px solid transparent; 
+  
+  /* Asumimos que ya tienes estilos de 'border-radius' en 'screens.css' o 'theme.css'
+     Si no, descomenta la siguiente línea: */
+  /* border-radius: 12px; */
+}
+
+/* 2. EFECTO HOVER (CUANDO EL RATÓN ESTÁ ENCIMA) */
+.game-card:hover {
+  /* 1. Levantar la tarjeta */
+  transform: translateY(-10px);
+  
+  /* 2. Añadir una sombra elegante */
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.2), 0 10px 10px rgba(0, 0, 0, 0.18);
+  
+  /* 3. Añadir un borde de color. ¡Puedes cambiar este color! */
+  border-color: #026da7; 
+  
+  /* 4. Cambiar el cursor a 'puntero' */
+  cursor: pointer;
+}

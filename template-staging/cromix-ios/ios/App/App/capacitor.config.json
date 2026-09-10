@@ -1,0 +1,12 @@
+{
+  "appId": "io.cromix.steam",
+  "appName": "Cromix",
+  "webDir": "dist",
+  "packageClassList": [
+    "AppPlugin",
+    "HapticsPlugin",
+    "KeyboardPlugin",
+    "ScreenOrientationPlugin",
+    "StatusBarPlugin"
+  ]
+}

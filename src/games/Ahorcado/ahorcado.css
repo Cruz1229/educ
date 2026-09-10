@@ -1,0 +1,230 @@
+.ahorcado-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+.ahorcado-container h1 {
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+.game-controls {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.game-controls button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.game-controls button:hover {
+  background-color: #2980b9;
+}
+
+.game-controls button:disabled {
+  background-color: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.game-controls select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  background-color: white;
+}
+
+.game-container {
+  margin-top: 30px;
+}
+
+.hangman-display {
+  font-family: monospace;
+  font-size: 18px;
+  line-height: 1.2;
+  min-height: 120px;
+  margin-bottom: 20px;
+}
+
+.word-display {
+  font-size: 32px;
+  letter-spacing: 10px;
+  margin: 20px 0;
+  min-height: 50px;
+}
+
+.keyboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin: 20px auto;
+  max-width: 500px;
+}
+
+.keyboard button {
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  padding: 0;
+}
+
+.game-info {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.message {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 30px;
+  border-radius: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  text-align: center;
+}
+
+.message button {
+  margin-top: 20px;
+}
+
+.used-letter {
+  color: #e74c3c;
+  text-decoration: line-through;
+}
+
+.correct-letter {
+  color: #2ecc71;
+}
+
+@media (max-width: 600px) {
+  .keyboard button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+  }
+  
+  .word-display {
+    font-size: 24px;
+    letter-spacing: 5px;
+  }
+}
+/* =========================================== */
+/* === NUEVOS ESTILOS PARA EL TECLADO VIRTUAL === */
+/* =========================================== */
+
+/* 1. Contenedor principal del teclado */
+.keyboard-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px; /* Espacio reducido entre botones para un look compacto */
+  max-width: 550px; /* Evita que el teclado se estire demasiado en pantallas grandes */
+  margin: 20px auto 0; /* Centra el teclado */
+  padding: 10px;
+  background-color: #f0f3f4; /* Un fondo sutil para el área del teclado */
+  border-radius: 15px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* 2. Estilo base para TODOS los botones del teclado */
+.keyboard-container button {
+  width: 38px;  /* Tamaño compacto y cuadrado */
+  height: 38px;
+  font-family: 'Arial', sans-serif;
+  font-size: 1.1rem; /* Tamaño de letra legible */
+  font-weight: bold;
+  color: #34495e; /* Color de letra oscuro y legible */
+  background-color: #ffffff; /* Fondo blanco y limpio */
+  border: none;
+  border-radius: 8px; /* Bordes redondeados */
+  cursor: pointer;
+  text-transform: uppercase; /* Letras en mayúscula */
+  
+  /* Sombra sutil para dar efecto de profundidad */
+  box-shadow: 0 3px 0 #bdc3c7; 
+  
+  /* Transición suave para todos los cambios */
+  transition: all 0.15s ease-out;
+}
+
+/* 3. Efecto al pasar el ratón (Hover) sobre un botón activo */
+.keyboard-container button:hover:not(:disabled) {
+  background-color: #ecf0f1; /* Un ligero cambio de color */
+  transform: translateY(-2px); /* Eleva el botón sutilmente */
+  box-shadow: 0 5px 0 #95a5a6;
+}
+
+/* 4. Efecto al hacer clic (Active) en un botón */
+.keyboard-container button:active:not(:disabled) {
+  transform: translateY(1px); /* Simula que se presiona el botón */
+  box-shadow: 0 2px 0 #bdc3c7;
+}
+
+/* 5. Estilo para las letras correctas que ya fueron presionadas */
+.keyboard-container button.correct-letter {
+  background-color: #2ecc71; /* Verde vibrante */
+  color: white;
+  box-shadow: 0 3px 0 #27ae60; /* Sombra más oscura del mismo color */
+}
+
+/* 6. Estilo para las letras incorrectas que ya fueron presionadas */
+.keyboard-container button.used-letter {
+  background-color: #7f8c8d; /* Gris neutro */
+  color: white;
+  box-shadow: 0 3px 0 #5f6a6b; /* Sombra más oscura */
+}
+
+/* 7. Estilo general para CUALQUIER botón deshabilitado (ya sea correcto o incorrecto) */
+.keyboard-container button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6; /* Reduce la opacidad para que se vea inactivo */
+  box-shadow: 0 2px 0 #bdc3c7; /* Reduce la sombra */
+  transform: translateY(1px); /* Lo mantiene "presionado" */
+}
+
+
+/* === AJUSTES ADICIONALES RECOMENDADOS (SI AÚN NO LOS TIENES) === */
+
+/* Para que el panel de información del juego se vea bien */
+.game-status-panel {
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.game-info-placeholder p {
+  color: #6c757d;
+  font-style: italic;
+}
+
+.game-info h4 {
+  margin: 5px 10px;
+  display: inline-block;
+  color: #495057;
+}
+
+.game-info h4 span {
+  color: #007bff;
+  font-weight: bold;
+}

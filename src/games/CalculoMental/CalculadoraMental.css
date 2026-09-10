@@ -1,0 +1,171 @@
+/* Contenedor Principal - MÁS ESPACIOSO */
+.app-container {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 900px;      /* ANTES: 800px */
+    margin: 3rem auto;     /* ANTES: 2rem auto */
+    padding: 2.5rem 3rem;  /* ANTES: 2rem */
+    background-color: #f4f7f9;
+    border-radius: 20px;   /* ANTES: 12px */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); /* Sombra un poco más suave */
+    text-align: center;
+    transition: all 0.3s ease; /* Añadimos una transición suave */
+}
+
+/* ... el resto del archivo CSS permanece exactamente igual ... */
+
+h1 { color: #4361ee; margin-bottom: 2rem; }
+#generator-screen .form-section { margin-bottom: 1.5rem; display: flex; flex-direction: column; align-items: center; gap: 0.5rem; }
+#generator-screen label { font-weight: 600; color: #333; }
+#generator-screen select, #generator-screen input { padding: 0.75rem; border: 1px solid #ccc; border-radius: 8px; width: 80%; max-width: 300px; font-size: 1rem; }
+.game-example-container { margin-top: 2.5rem; margin-bottom: 2rem; padding: 1.5rem; border: 2px dashed #4361ee; border-radius: 12px; background-color: #eaf0ff; }
+.game-example-container h3 { margin-top: 0; color: #3a0ca3; font-weight: 600; }
+.example-display { font-size: 2.5rem; font-weight: bold; color: #333; background-color: #fff; padding: 1rem 2rem; border-radius: 8px; min-height: 55px; min-width: 100px; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: all 0.2s ease-in-out; }
+#game-options { margin-top: 1rem; }
+#startGameBtn { padding: 0.8rem 2rem; background-color: #4361ee; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 1.1rem; font-weight: bold; transition: background-color 0.3s, transform 0.2s; }
+#startGameBtn:hover { background-color: #3a0ca3; transform: translateY(-2px); }
+
+/* ... (Estilos de game-screen se mantienen igual) ... */
+#game-screen { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; }
+#operation-display { font-size: 3rem; font-weight: bold; color: #3a0ca3; min-height: 60px; }
+#options-container { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; width: 100%; }
+.option-btn { padding: 1rem; font-size: 1.2rem; background-color: #fff; border: 2px solid #4361ee; color: #4361ee; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; }
+.option-btn:hover { background-color: #eaf0ff; transform: scale(1.05); }
+.option-btn.selected { background-color: #4cc9f0; color: white; border-color: #4cc9f0; }
+.option-btn.correct { background-color: #2a9d8f; color: white; border-color: #2a9d8f; }
+.option-btn.incorrect { background-color: #e76f51; color: white; border-color: #e76f51; }
+#validate button { width: 100%; padding: 0.8rem; background: #4361ee; color: white; border: none; border-radius: 8px; font-size: 1.1rem; cursor: pointer; }
+#score-display { font-size: 1.2rem; font-weight: bold; }
+#back-btn { background-color: #6c757d; color: white; padding: 0.7rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; }
+
+
+/* ✨ --- NUEVOS ESTILOS PARA MODALES Y NOTIFICACIONES --- ✨ */
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+    from { transform: scale(0.9) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* Fondo del Modal (Overlay) */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Contenido General del Modal */
+.modal-content {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 420px;
+    width: 90vw;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: scaleUp 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para el modal de Instrucciones */
+.modal-content .camera-container {
+    position: relative;
+    height: 220px;
+    background: #000;
+}
+.modal-content .camera-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.modal-info {
+    padding: 2rem;
+    text-align: center;
+}
+.modal-info h2 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+}
+.modal-info p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* Botón de Acción Principal */
+.modal-action-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: white;
+}
+.modal-action-btn.primary {
+    background: linear-gradient(45deg, #4361ee, #3a0ca3);
+    box-shadow: 0 4px 15px rgba(67, 97, 238, 0.4);
+}
+.modal-action-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(67, 97, 238, 0.5);
+}
+
+/* Estilos para el Modal de Notificación (Correcto/Incorrecto) */
+.modal-content.notification {
+    flex-direction: row;
+    max-width: 500px;
+    align-items: center;
+}
+.notification .modal-icon {
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.notification .modal-info {
+    flex-grow: 1;
+    text-align: left;
+    padding: 2rem 2rem 2rem 0;
+}
+.notification.correct-notification .modal-icon {
+    background-color: #2a9d8f;
+    color: white;
+}
+.notification.incorrect-notification .modal-icon {
+    background-color: #e76f51;
+    color: white;
+}
+.modal-action-btn.correct {
+    background: #2a9d8f;
+}
+.modal-action-btn.incorrect {
+    background: #e76f51;
+}
+.modal-action-btn.correct:hover { box-shadow: 0 6px 20px rgba(42, 157, 143, 0.5); }
+.modal-action-btn.incorrect:hover { box-shadow: 0 6px 20px rgba(231, 111, 81, 0.5); }
+
+/* Ajustes finales de los iconos dentro de los botones */
+.modal-action-btn svg {
+    transition: transform 0.3s ease;
+}
+.modal-action-btn:hover svg {
+    transform: translateX(3px);
+}

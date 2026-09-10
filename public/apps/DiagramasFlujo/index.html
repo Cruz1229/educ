@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowMaster Pro - Aprende Diagramas de Flujo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="go.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>FlowMaster Pro</h1>
+            <p>Aprende diagramas de flujo con herramientas profesionales</p>
+        </header>
+
+        <div id="start-screen" class="screen">
+            <h2>Selecciona la Dificultad</h2>
+            <div class="difficulty-buttons">
+                <button class="btn-difficulty" data-level="easy">Fácil</button>
+                <button class="btn-difficulty" data-level="medium">Intermedio</button>
+                <button class="btn-difficulty" data-level="hard">Difícil</button>
+            </div>
+            <div class="instructions">
+                <h3>Instrucciones:</h3>
+                <p>Resuelve los problemas creando diagramas de flujo profesionales.</p>
+                <p>Arrastra elementos de la barra de herramientas al área de trabajo.</p>
+                <p>Conecta los elementos arrastrando desde los puntos de conexión.</p>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen hidden">
+            <div class="game-header">
+                <button id="btn-back" class="btn-small"><i class="fas fa-arrow-left"></i> Volver</button>
+                <div class="level-display">Nivel: <span id="current-level">Fácil</span></div>
+                <div class="score-display">Puntos: <span id="current-score">0</span></div>
+                <button id="btn-hint" class="btn-small"><i class="fas fa-lightbulb"></i> Pista</button>
+            </div>
+
+            <div class="game-container">
+                <div class="problem-section">
+                    <h3>Problema:</h3>
+                    <div id="problem-description"></div>
+                    <div class="buttons">
+                        <button id="btn-check" class="btn-main">Verificar Solución</button>
+                        <button id="btn-clear" class="btn-secondary">Limpiar Todo</button>
+                    </div>
+                </div>
+
+                <div class="workspace-section">
+                    <!-- Barra de herramientas -->
+                    <div id="toolbox" class="toolbox">
+                        <div class="tool" data-type="Start">
+                            <i class="fas fa-play"></i> Inicio
+                        </div>
+                        <div class="tool" data-type="End">
+                            <i class="fas fa-stop"></i> Fin
+                        </div>
+                        <div class="tool" data-type="Process">
+                            <i class="fas fa-cog"></i> Proceso
+                        </div>
+                        <div class="tool" data-type="Input">
+                            <i class="fas fa-keyboard"></i> Entrada
+                        </div>
+                        <div class="tool" data-type="Output">
+                            <i class="fas fa-print"></i> Salida
+                        </div>
+                        <div class="tool" data-type="Decision">
+                            <i class="fas fa-question"></i> Decisión
+                        </div>
+                        <div class="tool" data-type="Comment">
+                            <i class="fas fa-comment"></i> Comentario
+                        </div>
+                    </div>
+
+                    <!-- Área de diagrama -->
+                    <div id="diagram-container">
+                        <div id="diagram" class="diagram"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="result-screen" class="screen hidden">
+            <div id="result-message"></div>
+            <div class="result-buttons">
+                <button id="btn-next" class="btn-main">Siguiente Problema</button>
+                <button id="btn-retry" class="btn-secondary">Reintentar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

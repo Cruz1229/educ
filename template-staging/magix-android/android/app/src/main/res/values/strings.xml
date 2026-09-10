@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Magix</string>
+    <string name="title_activity_main">Magix</string>
+    <string name="package_name">io.magix.steam</string>
+    <string name="custom_url_scheme">io.magix.steam</string>
+</resources>

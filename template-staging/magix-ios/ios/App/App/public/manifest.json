@@ -1,0 +1,16 @@
+{
+  "short_name": "Magix",
+  "name": "Magix | STEAM-G",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#176b87",
+  "background_color": "#f5f8f9"
+}

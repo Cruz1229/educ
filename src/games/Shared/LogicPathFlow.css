@@ -1,0 +1,586 @@
+.logic-path-screen {
+  width: 100%;
+  min-width: 0;
+}
+
+.logic-path-panel {
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+.logic-path-title-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.logic-path-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 0 0.25rem;
+  color: #1f2937 !important;
+  font-family: "Merriweather", Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.logic-path-title > span {
+  display: inline-block;
+  position: relative;
+  animation: logicPathWave 1.8s infinite;
+}
+
+.logic-path-floating-icons span {
+  position: absolute;
+  color: #005f92;
+  opacity: 0.3;
+  font-size: 1.5rem;
+  font-weight: 700;
+  animation: logicPathFloat 4s ease-in-out infinite;
+}
+
+.logic-path-icon-1 { top: -20px; left: 10%; }
+.logic-path-icon-2 { top: 0; right: 10%; animation-delay: 1s !important; }
+.logic-path-icon-3 { bottom: 0; left: 20%; animation-delay: 2s !important; }
+.logic-path-icon-4 { bottom: -10px; right: 20%; animation-delay: 3s !important; }
+
+.logic-path-progress-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.logic-path-progress-step {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.logic-path-progress-step.active { color: #005f92; }
+.logic-path-progress-step.done { color: #22c55e; }
+
+.logic-path-progress-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border-radius: 50%;
+  background: #e2e8f0;
+}
+
+.logic-path-progress-step.active .logic-path-progress-dot { background: #005f92; }
+.logic-path-progress-step.done .logic-path-progress-dot { background: #22c55e; }
+
+.logic-path-progress-line {
+  width: 100%;
+  max-width: 40px;
+  height: 2px;
+  flex: 1;
+  border-radius: 999px;
+  background: #e2e8f0;
+}
+
+.logic-path-section-title {
+  margin: 0;
+  color: #005f92;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.logic-path-section-title.summary { margin-bottom: 1.5rem; }
+
+.logic-path-ar-tabs {
+  display: flex;
+  gap: 0;
+  margin: 1.5rem 0;
+  border-bottom: 2px solid #e9ecef;
+}
+
+.logic-path-ar-tab {
+  position: relative;
+  flex: 1;
+  padding: 1rem 1.5rem;
+  border: 0;
+  background: transparent;
+  color: #1f2937;
+  font: 600 1rem "Nunito", "Segoe UI", sans-serif;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.logic-path-ar-tab.active { color: #005f92; }
+.logic-path-ar-tab.active::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -2px;
+  left: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: #005f92;
+}
+
+.logic-path-ar-tab-check { margin-left: 0.4rem; color: #22c55e; }
+
+.logic-path-ar-tab-content {
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.logic-path-stage-toggle-row {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logic-path-stage-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #111827;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+}
+
+.logic-path-stage-toggle input { accent-color: #005f92; }
+
+.logic-path-content-cards {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.logic-path-content-card {
+  width: 100%;
+  min-width: 0;
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 12px;
+  background: #fff;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.logic-path-content-card.has-content {
+  border-color: rgba(0, 95, 146, 0.38);
+  box-shadow: 0 5px 14px rgba(0, 95, 146, 0.1);
+}
+
+.logic-path-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 74px;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.logic-path-card-icon { width: 68px; height: 68px; flex: 0 0 68px; }
+.logic-path-card-header strong { flex: 1; color: #111827; font-size: 1rem; }
+
+.logic-path-delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #ff4757;
+  color: #fff;
+  cursor: pointer;
+}
+
+.logic-path-field {
+  width: 100%;
+  min-height: 90px;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid rgba(2, 62, 138, 0.2);
+  border-radius: 8px;
+  background: #fff;
+  font: 0.95rem "Nunito", "Segoe UI", sans-serif;
+  resize: vertical;
+}
+
+.logic-path-field:focus { outline: 2px solid rgba(0, 95, 146, 0.18); border-color: #005f92; }
+.logic-path-file-input { display: none; }
+
+.logic-path-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.65rem 1rem;
+  border: 2px dashed #cbd5e1;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #64748b;
+  font-size: 0.92rem;
+  font-weight: 600;
+  text-align: center;
+  cursor: pointer;
+}
+
+.logic-path-upload-btn.has-file { border-color: #22c55e; background: #f0fdf4; color: #15803d; }
+.logic-path-file-name { display: block; margin-top: 0.55rem; overflow: hidden; color: #64748b; font-size: 0.78rem; text-overflow: ellipsis; white-space: nowrap; }
+.logic-path-preview-image,
+.logic-path-preview-video { width: 100%; max-height: 145px; margin-top: 0.75rem; border-radius: 8px; object-fit: contain; background: #f8fafc; }
+.logic-path-preview-audio { width: 100%; margin-top: 0.75rem; }
+
+.logic-path-disabled-message {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  border-radius: 12px;
+  background: #f8f9fa;
+  color: #1f2937;
+}
+.logic-path-disabled-message p { margin: 0; text-align: center; }
+
+.logic-path-actions {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.logic-path-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  border-radius: 8px;
+  background: #005f92;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+/* .logic-path-btn.secondary { background: #1f2937; } */
+.logic-path-btn:hover:not(:disabled) { background: #004a73; }
+.logic-path-btn.secondary:hover:not(:disabled) { background: #111827; }
+.logic-path-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.logic-path-config-section {
+  margin-top: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+.logic-path-config-label { display: block; margin-bottom: 0.6rem; color: #005f92; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; }
+.logic-path-config-field { width: 100%; padding: 0.85rem 1rem; border: 2px solid #e2e8f0; border-radius: 12px; background: #f8fafc; color: #1e293b; font-size: 1rem; outline: none; }
+.logic-path-config-field:focus { border-color: #005f92; box-shadow: 0 0 0 3px rgba(0, 95, 146, 0.12); }
+
+.logic-path-ar-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+.logic-path-ar-summary-card { padding: 14px; border: 1px solid rgba(2, 62, 138, 0.18); border-radius: 14px; background: #fff; opacity: 0.7; }
+.logic-path-ar-summary-card.enabled { opacity: 1; }
+.logic-path-ar-summary-card header { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; margin-bottom: 10px; }
+.logic-path-ar-summary-card header strong { color: #023e8a; }
+.logic-path-ar-summary-card header span { padding: 2px 8px; border-radius: 999px; background: rgba(2, 62, 138, 0.08); color: #023e8a; font-size: 0.8rem; }
+.logic-path-ar-summary-card.enabled header span { background: rgba(0, 119, 182, 0.12); color: #0077b6; }
+.logic-path-ar-summary-card p { margin: 0; color: rgba(2, 62, 138, 0.6); font-size: 0.9rem; }
+.logic-path-ar-summary-card .logic-path-ar-summary-item { padding: 6px 0; border-bottom: 1px solid rgba(2, 62, 138, 0.1); color: #023e8a; }
+.logic-path-ar-summary-card .logic-path-ar-summary-item:last-child { border-bottom: 0; }
+
+.logic-path-stage-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(5px);
+}
+
+.logic-path-stage-modal {
+  width: min(720px, 96vw);
+  overflow: hidden;
+  border-radius: 28px;
+  background: transparent;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.45);
+}
+
+.logic-path-stage-experience {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 360px;
+  overflow: hidden;
+  padding: 1.2rem;
+  border-radius: 28px 28px 0 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1), transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1), transparent 50%),
+    linear-gradient(135deg, #0077b6 0%, #023e8a 100%);
+}
+
+.logic-path-stage-symbols span {
+  position: absolute;
+  z-index: 0;
+  color: rgba(255, 255, 255, 0.25);
+  font-size: 2rem;
+  font-weight: 800;
+  animation: logicPathStageFloat 5s ease-in-out infinite;
+}
+.logic-path-stage-symbols span:nth-child(1) { top: 12%; left: 9%; }
+.logic-path-stage-symbols span:nth-child(2) { top: 18%; right: 12%; animation-delay: .7s; }
+.logic-path-stage-symbols span:nth-child(3) { bottom: 12%; left: 14%; animation-delay: 1.4s; }
+.logic-path-stage-symbols span:nth-child(4) { right: 10%; bottom: 15%; animation-delay: 2.1s; }
+.logic-path-stage-symbols span:nth-child(5) { top: 48%; left: 4%; animation-delay: 2.8s; }
+.logic-path-stage-symbols span:nth-child(6) { top: 46%; right: 5%; animation-delay: 3.5s; }
+
+.logic-path-stage-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+.logic-path-stage-label { padding: 0.45rem 0.9rem; border: 1px solid rgba(255, 255, 255, 0.4); border-radius: 999px; background: rgba(255, 255, 255, 0.14); color: #fff; font-size: 0.82rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+.logic-path-stage-media { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; width: 100%; gap: 1rem; }
+.logic-path-stage-media.count-1 > * { width: min(420px, 88%); }
+.logic-path-stage-text,
+.logic-path-stage-image,
+.logic-path-stage-video { display: flex; align-items: center; justify-content: center; width: min(280px, 44%); min-height: 170px; max-height: 220px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 12px; background: rgba(255, 255, 255, 0.14); box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22); backdrop-filter: blur(6px); }
+.logic-path-stage-text { padding: 1.25rem; color: #fff; font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 800; line-height: 1.25; text-align: center; text-shadow: 0 3px 12px rgba(0, 0, 0, 0.35); }
+.logic-path-stage-image,
+.logic-path-stage-video { object-fit: contain; }
+.logic-path-stage-audio { width: min(360px, 88%); }
+.logic-path-stage-actions {
+  display: flex;
+  gap: 0;
+  padding: 0;
+  background: #0077b6;
+}
+
+.logic-path-stage-action {
+  flex: 1;
+  min-width: 0;
+  padding: 0.95rem 1.5rem;
+  border: 0;
+  border-radius: 0;
+  background: #0077b6;
+  color: #fff;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.logic-path-stage-action:hover {
+  background: #005f92;
+}
+
+.logic-path-stage-action:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.72);
+  outline-offset: 2px;
+}
+
+/* Vista RA previa: replica el modal que utiliza LogicPath antes de iniciar. */
+.logic-path-stage-backdrop.logic-path-stage-preview {
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: none;
+}
+
+.logic-path-stage-preview .logic-path-stage-modal {
+  width: min(620px, calc(100vw - 2rem));
+}
+
+.logic-path-stage-preview .logic-path-stage-experience {
+  min-height: 232px;
+  padding: 1rem;
+}
+
+.logic-path-stage-preview .logic-path-stage-text {
+  width: min(460px, 90%);
+  min-height: 0;
+  max-height: none;
+  padding: 1rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  font-size: clamp(1.55rem, 4vw, 2.4rem);
+  transform-origin: center;
+  transform-style: preserve-3d;
+  backface-visibility: visible;
+  will-change: transform;
+  animation: logicPathPreviewTextMotion 9s linear infinite;
+}
+
+@keyframes logicPathPreviewTextMotion {
+  0% {
+    transform: perspective(620px) translateY(0) rotateY(0deg);
+  }
+
+  25% {
+    transform: perspective(620px) translateY(-9px) rotateY(90deg);
+  }
+
+  50% {
+    transform: perspective(620px) translateY(0) rotateY(180deg);
+  }
+
+  75% {
+    transform: perspective(620px) translateY(9px) rotateY(270deg);
+  }
+
+  100% {
+    transform: perspective(620px) translateY(0) rotateY(360deg);
+  }
+}
+
+.logic-path-stage-preview .logic-path-stage-actions {
+  gap: 0.75rem;
+  padding: 0.9rem 1.35rem 1.15rem;
+  background: linear-gradient(135deg, #023e8a 0%, #005f92 100%);
+}
+
+.logic-path-stage-preview .logic-path-stage-action {
+  padding: 0.72rem 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.55);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.logic-path-stage-preview .logic-path-stage-action:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.24);
+}
+
+@media (max-width: 520px) {
+  .logic-path-stage-preview .logic-path-stage-experience {
+    min-height: 210px;
+  }
+
+  .logic-path-stage-actions {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logic-path-stage-preview .logic-path-stage-text {
+    animation: none;
+  }
+}
+
+.logic-path-summary-screen { max-width: 1000px; margin: 0 auto; padding: 2rem; color: #1f2937; font-family: system-ui, -apple-system, sans-serif; }
+.logic-path-success-title { display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin: 0 0 0.75rem; color: #0077b6; text-align: center; }
+.logic-path-summary-copy { margin: 0 0 2rem; color: #6b7280; font-size: 1.1rem; text-align: center; }
+.logic-path-summary-title { margin: 0 0 2rem; color: #005f92; font-size: 2rem; font-weight: 700; text-align: center; }
+.logic-path-info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+.logic-path-info-card { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; border: 1px solid #f1f5f9; border-radius: 0.75rem; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); }
+.logic-path-info-card.wide { grid-column: 1 / -1; }
+.logic-path-info-label { display: flex; align-items: center; gap: 0.5rem; color: #64748b; font-size: 0.9rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; }
+.logic-path-info-value { width: 100%; color: #334155; font-size: 1.1rem; font-weight: 500; text-align: center; }
+.logic-path-summary-divider { margin: 2.5rem 0; border: 0; border-top: 1px solid #e2e8f0; }
+.logic-path-summary-columns { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+.logic-path-context-card.areas { border-left: 4px solid #3b82f6; }
+.logic-path-context-card.skills { border-left: 4px solid #8b5cf6; }
+.logic-path-context-card h3 { display: flex; align-items: center; gap: 0.5rem; margin: 0 0 1rem; color: #0077b6; font-size: 1rem; }
+.logic-path-area-list { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.logic-path-area-list span { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 0.75rem; border-radius: 0.5rem; background: #eff6ff; color: #1e40af; font-size: 0.95rem; }
+.logic-path-area-list img { width: 20px; height: 20px; object-fit: contain; }
+.logic-path-context-card ul { margin: 0; padding-left: 1.2rem; color: #334155; text-align: left; }
+.logic-path-context-card li { margin-bottom: 0.4rem; }
+.logic-path-empty-copy { margin: 0; color: #64748b; font-style: italic; }
+.logic-path-parameters-card { margin-top: 2.5rem; padding: 1.5rem; border: 1px solid #e5e7eb; border-radius: 0.75rem; background: #fff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+.logic-path-parameters-card h3 { margin: 0 0 15px; padding-bottom: 10px; border-bottom: 1px solid #eee; color: #0077b6; text-align: center; }
+.logic-path-parameter-list { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 2rem; }
+.logic-path-parameter { display: flex; align-items: center; gap: 0.5rem; white-space: nowrap; }
+.logic-path-parameter span { display: flex; align-items: center; gap: 8px; color: #64748b; }
+.logic-path-parameter strong { color: #0077b6; font-size: 1.1rem; }
+.logic-path-edit-actions { display: flex; justify-content: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #f1f5f9; }
+.logic-path-edit-btn,
+.logic-path-download-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.75rem 1.5rem; border: 0; border-radius: 0.5rem; background: #005f92; color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; }
+.logic-path-edit-btn { background: #006a9f; }
+.logic-path-edit-btn:disabled,
+.logic-path-download-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+.logic-path-download-section { display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 3rem; padding: 2rem; border: 1px solid #e2e8f0; border-radius: 1rem; background: #f8fafc; text-align: center; }
+.logic-path-download-section h3 { margin: 0; color: #0077b6; }
+.logic-path-download-section p { max-width: 600px; margin: -0.8rem 0 0; color: #64748b; }
+.logic-path-download-platforms { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; }
+.logic-path-platform-badge { display: inline-flex; align-items: center; gap: 0.45rem; padding: 0.45rem 0.8rem; border: 2px solid #d8dee8; border-radius: 999px; background: #fff; color: #0f766e; font-size: 0.9rem; font-weight: 600; box-shadow: 0 1px 2px rgba(15, 23, 42, 0.08); }
+.logic-path-platform-badge.web { color: #0369a1; }
+.logic-path-platform-badge.ios { color: #475569; }
+.logic-path-platform-notices { display: grid; width: 100%; max-width: 600px; gap: 0.6rem; }
+.logic-path-platform-notice { padding: 0.75rem 1rem; border: 1px dashed #bfd1e5; border-radius: 0.5rem; background: #f8fbff; color: #7183a0; font-size: 0.86rem; text-align: center; }
+.logic-path-platform-notice span { color: #6d28d9; }
+.logic-path-download-progress { width: 100%; max-width: 600px; }
+.logic-path-download-progress > div:first-child { display: flex; justify-content: space-between; margin-bottom: 0.5rem; color: #4b5563; font-size: 0.9rem; }
+.logic-path-download-track { width: 100%; height: 14px; overflow: hidden; border-radius: 7px; background: #e2e8f0; }
+.logic-path-download-track span { display: block; height: 100%; border-radius: inherit; background: #0077b6; transition: width 0.2s ease; }
+.logic-path-download-btn { min-width: 230px; box-shadow: 0 6px 14px rgba(0, 95, 146, 0.28); }
+
+@keyframes logicPathFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes logicPathWave {
+  0%, 40%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-20px); }
+}
+
+@keyframes logicPathStageFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0); }
+  50% { transform: translate(8px, -14px) rotate(8deg); }
+}
+
+@media (max-width: 980px) {
+  .logic-path-content-cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+  .logic-path-panel { padding: 1.25rem; }
+  .logic-path-title { font-size: 2.15rem; }
+  .logic-path-progress-bar { overflow-x: auto; justify-content: flex-start; padding-bottom: 0.25rem; }
+  .logic-path-progress-step { flex: 0 0 auto; font-size: 0.76rem; }
+  .logic-path-content-cards,
+  .logic-path-info-grid { grid-template-columns: 1fr; }
+  .logic-path-info-card.wide { grid-column: auto; }
+  .logic-path-ar-tab { padding: 0.85rem 0.5rem; }
+  .logic-path-ar-tab-content { padding: 1rem 0; }
+  .logic-path-actions { grid-template-columns: 1fr; }
+  .logic-path-summary-screen { padding: 0.5rem; }
+  .logic-path-summary-columns { grid-template-columns: 1fr; }
+  .logic-path-stage-experience { min-height: 320px; }
+  .logic-path-stage-text,
+  .logic-path-stage-image,
+  .logic-path-stage-video { width: 88%; }
+}

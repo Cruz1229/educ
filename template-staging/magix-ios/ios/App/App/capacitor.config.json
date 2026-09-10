@@ -1,0 +1,12 @@
+{
+  "appId": "io.magix.steam",
+  "appName": "Magix",
+  "webDir": "dist",
+  "packageClassList": [
+    "AppPlugin",
+    "HapticsPlugin",
+    "KeyboardPlugin",
+    "ScreenOrientationPlugin",
+    "StatusBarPlugin"
+  ]
+}
